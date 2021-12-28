@@ -9,8 +9,8 @@
     {
         public Configuration()
         {
-            //Eğer burası FALSE kalsın istersek 'add-migration' ile migration eklemesi yapmamız gerekiyor.
-            //Eğer burayı TRUE olarak değiştirirsek 'addmigration' 'a gerek YOK....
+            //Eğer burası FALSE kalsın istersek 'add-migration' ile migration eklemesi yapıp sonra update-database işlemi yapmamız gerekiyor.
+            //Eğer burayı TRUE olarak değiştirirsek 'addmigration' 'a gerek YOK. Update-database yapmak yeterlidir....
             AutomaticMigrationsEnabled = true;
         }
 

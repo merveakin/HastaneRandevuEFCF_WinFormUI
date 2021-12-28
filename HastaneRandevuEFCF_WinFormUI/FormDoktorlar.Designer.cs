@@ -226,7 +226,6 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.comboBoxDrBranslar.Name = "comboBoxDrBranslar";
             this.comboBoxDrBranslar.Size = new System.Drawing.Size(562, 24);
             this.comboBoxDrBranslar.TabIndex = 12;
-            this.comboBoxDrBranslar.SelectedIndexChanged += new System.EventHandler(this.comboBoxDrBranslar_SelectedIndexChanged);
             // 
             // btnDrEkle
             // 
