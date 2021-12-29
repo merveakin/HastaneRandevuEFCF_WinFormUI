@@ -33,10 +33,10 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelRandevuButonlar = new System.Windows.Forms.TableLayoutPanel();
-            this.btn0015 = new System.Windows.Forms.Button();
-            this.btn1530 = new System.Windows.Forms.Button();
-            this.btn3045 = new System.Windows.Forms.Button();
-            this.btn4500 = new System.Windows.Forms.Button();
+            this.btn00 = new System.Windows.Forms.Button();
+            this.btn30 = new System.Windows.Forms.Button();
+            this.btn45 = new System.Windows.Forms.Button();
+            this.btn15 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelRandevuButonlar.SuspendLayout();
             this.SuspendLayout();
@@ -44,9 +44,9 @@ namespace HastaneRandevuEFCF_WinFormUI
             // comboBoxSaatler
             // 
             this.comboBoxSaatler.FormattingEnabled = true;
-            this.comboBoxSaatler.Location = new System.Drawing.Point(3, 58);
+            this.comboBoxSaatler.Location = new System.Drawing.Point(3, 27);
             this.comboBoxSaatler.Name = "comboBoxSaatler";
-            this.comboBoxSaatler.Size = new System.Drawing.Size(408, 24);
+            this.comboBoxSaatler.Size = new System.Drawing.Size(395, 24);
             this.comboBoxSaatler.TabIndex = 0;
             this.comboBoxSaatler.SelectedIndexChanged += new System.EventHandler(this.comboBoxSaatler_SelectedIndexChanged);
             // 
@@ -64,79 +64,79 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Wheat;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.10799F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelRandevuButonlar, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSaatler, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.51328F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.48672F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(522, 373);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.18182F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.81818F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(486, 65);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanelRandevuButonlar
             // 
-            this.tableLayoutPanelRandevuButonlar.BackColor = System.Drawing.Color.MistyRose;
+            this.tableLayoutPanelRandevuButonlar.BackColor = System.Drawing.Color.LightSalmon;
             this.tableLayoutPanelRandevuButonlar.ColumnCount = 2;
             this.tableLayoutPanelRandevuButonlar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelRandevuButonlar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn0015, 0, 0);
-            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn1530, 1, 0);
-            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn3045, 0, 1);
-            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn4500, 1, 1);
-            this.tableLayoutPanelRandevuButonlar.Location = new System.Drawing.Point(3, 163);
+            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn00, 0, 0);
+            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn30, 0, 1);
+            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn45, 1, 1);
+            this.tableLayoutPanelRandevuButonlar.Controls.Add(this.btn15, 1, 0);
+            this.tableLayoutPanelRandevuButonlar.Location = new System.Drawing.Point(3, 89);
             this.tableLayoutPanelRandevuButonlar.Name = "tableLayoutPanelRandevuButonlar";
             this.tableLayoutPanelRandevuButonlar.RowCount = 2;
             this.tableLayoutPanelRandevuButonlar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.47319F));
             this.tableLayoutPanelRandevuButonlar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.52681F));
-            this.tableLayoutPanelRandevuButonlar.Size = new System.Drawing.Size(506, 184);
-            this.tableLayoutPanelRandevuButonlar.TabIndex = 3;
+            this.tableLayoutPanelRandevuButonlar.Size = new System.Drawing.Size(486, 101);
+            this.tableLayoutPanelRandevuButonlar.TabIndex = 4;
             // 
-            // btn0015
+            // btn00
             // 
-            this.btn0015.Location = new System.Drawing.Point(3, 3);
-            this.btn0015.Name = "btn0015";
-            this.btn0015.Size = new System.Drawing.Size(247, 67);
-            this.btn0015.TabIndex = 0;
-            this.btn0015.Text = "button1";
-            this.btn0015.UseVisualStyleBackColor = true;
+            this.btn00.Location = new System.Drawing.Point(3, 3);
+            this.btn00.Name = "btn00";
+            this.btn00.Size = new System.Drawing.Size(189, 44);
+            this.btn00.TabIndex = 0;
+            this.btn00.Text = "button1";
+            this.btn00.UseVisualStyleBackColor = true;
             // 
-            // btn1530
+            // btn30
             // 
-            this.btn1530.Location = new System.Drawing.Point(256, 3);
-            this.btn1530.Name = "btn1530";
-            this.btn1530.Size = new System.Drawing.Size(247, 67);
-            this.btn1530.TabIndex = 1;
-            this.btn1530.Text = "button2";
-            this.btn1530.UseVisualStyleBackColor = true;
+            this.btn30.Location = new System.Drawing.Point(3, 53);
+            this.btn30.Name = "btn30";
+            this.btn30.Size = new System.Drawing.Size(189, 45);
+            this.btn30.TabIndex = 2;
+            this.btn30.Text = "button3";
+            this.btn30.UseVisualStyleBackColor = true;
             // 
-            // btn3045
+            // btn45
             // 
-            this.btn3045.Location = new System.Drawing.Point(3, 95);
-            this.btn3045.Name = "btn3045";
-            this.btn3045.Size = new System.Drawing.Size(247, 67);
-            this.btn3045.TabIndex = 2;
-            this.btn3045.Text = "button3";
-            this.btn3045.UseVisualStyleBackColor = true;
+            this.btn45.Location = new System.Drawing.Point(246, 53);
+            this.btn45.Name = "btn45";
+            this.btn45.Size = new System.Drawing.Size(186, 45);
+            this.btn45.TabIndex = 3;
+            this.btn45.Text = "button4";
+            this.btn45.UseVisualStyleBackColor = true;
             // 
-            // btn4500
+            // btn15
             // 
-            this.btn4500.Location = new System.Drawing.Point(256, 95);
-            this.btn4500.Name = "btn4500";
-            this.btn4500.Size = new System.Drawing.Size(247, 67);
-            this.btn4500.TabIndex = 3;
-            this.btn4500.Text = "button4";
-            this.btn4500.UseVisualStyleBackColor = true;
+            this.btn15.Location = new System.Drawing.Point(246, 3);
+            this.btn15.Name = "btn15";
+            this.btn15.Size = new System.Drawing.Size(186, 44);
+            this.btn15.TabIndex = 1;
+            this.btn15.Text = "button2";
+            this.btn15.UseVisualStyleBackColor = true;
             // 
             // UC_RandevuSaat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tableLayoutPanelRandevuButonlar);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UC_RandevuSaat";
-            this.Size = new System.Drawing.Size(528, 379);
+            this.Size = new System.Drawing.Size(497, 203);
             this.Load += new System.EventHandler(this.UC_RandevuSaat_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -151,9 +151,9 @@ namespace HastaneRandevuEFCF_WinFormUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelRandevuButonlar;
-        private System.Windows.Forms.Button btn0015;
-        private System.Windows.Forms.Button btn1530;
-        private System.Windows.Forms.Button btn4500;
-        private System.Windows.Forms.Button btn3045;
+        private System.Windows.Forms.Button btn00;
+        private System.Windows.Forms.Button btn30;
+        private System.Windows.Forms.Button btn45;
+        private System.Windows.Forms.Button btn15;
     }
 }

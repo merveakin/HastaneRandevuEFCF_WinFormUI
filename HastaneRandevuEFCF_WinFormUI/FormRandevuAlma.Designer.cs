@@ -31,6 +31,7 @@ namespace HastaneRandevuEFCF_WinFormUI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageRandevuIslem = new System.Windows.Forms.TabPage();
+            this.btnRandevuAl = new System.Windows.Forms.Button();
             this.groupBoxRandevu = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePickerRandevuTarihi = new System.Windows.Forms.DateTimePicker();
@@ -44,11 +45,16 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.label1 = new System.Windows.Forms.Label();
             this.txtHastaTCArama = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.UC_RandevuSaat1 = new HastaneRandevuEFCF_WinFormUI.UC_RandevuSaat();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCiktiDoktorSec = new System.Windows.Forms.ComboBox();
+            this.btnCiktiAl = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageRandevuIslem.SuspendLayout();
             this.groupBoxRandevu.SuspendLayout();
             this.groupBoxServis.SuspendLayout();
             this.groupBoxHasta.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -74,13 +80,27 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.tabPageRandevuIslem.TabIndex = 0;
             this.tabPageRandevuIslem.Text = "RANDEVU İŞLEMLERİ SAYFASI";
             // 
+            // btnRandevuAl
+            // 
+            this.btnRandevuAl.BackColor = System.Drawing.Color.Moccasin;
+            this.btnRandevuAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnRandevuAl.Location = new System.Drawing.Point(9, 366);
+            this.btnRandevuAl.Name = "btnRandevuAl";
+            this.btnRandevuAl.Size = new System.Drawing.Size(446, 39);
+            this.btnRandevuAl.TabIndex = 3;
+            this.btnRandevuAl.Text = "RANDEVUYU AL";
+            this.btnRandevuAl.UseVisualStyleBackColor = false;
+            this.btnRandevuAl.Click += new System.EventHandler(this.btnRandevuAl_Click);
+            // 
             // groupBoxRandevu
             // 
+            this.groupBoxRandevu.Controls.Add(this.btnRandevuAl);
+            this.groupBoxRandevu.Controls.Add(this.UC_RandevuSaat1);
             this.groupBoxRandevu.Controls.Add(this.label4);
             this.groupBoxRandevu.Controls.Add(this.dateTimePickerRandevuTarihi);
             this.groupBoxRandevu.Location = new System.Drawing.Point(744, 35);
             this.groupBoxRandevu.Name = "groupBoxRandevu";
-            this.groupBoxRandevu.Size = new System.Drawing.Size(565, 440);
+            this.groupBoxRandevu.Size = new System.Drawing.Size(470, 437);
             this.groupBoxRandevu.TabIndex = 1;
             this.groupBoxRandevu.TabStop = false;
             this.groupBoxRandevu.Text = "RANDEVU TARİH VE SAAT İŞLEMLERİ";
@@ -195,6 +215,9 @@ namespace HastaneRandevuEFCF_WinFormUI
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnCiktiAl);
+            this.tabPage2.Controls.Add(this.comboBoxCiktiDoktorSec);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -203,12 +226,49 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // UC_RandevuSaat1
+            // 
+            this.UC_RandevuSaat1.DisaridanGelenTarih = new System.DateTime(2021, 12, 29, 10, 6, 50, 84);
+            this.UC_RandevuSaat1.Doktorum = null;
+            this.UC_RandevuSaat1.Location = new System.Drawing.Point(0, 129);
+            this.UC_RandevuSaat1.Name = "UC_RandevuSaat1";
+            this.UC_RandevuSaat1.RandevuAlmaAktifMi = false;
+            this.UC_RandevuSaat1.SecilenRandevuTarihi = new System.DateTime(((long)(0)));
+            this.UC_RandevuSaat1.Size = new System.Drawing.Size(477, 202);
+            this.UC_RandevuSaat1.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "DOKTOR SEÇİNİZ :";
+            // 
+            // comboBoxCiktiDoktorSec
+            // 
+            this.comboBoxCiktiDoktorSec.FormattingEnabled = true;
+            this.comboBoxCiktiDoktorSec.Location = new System.Drawing.Point(173, 21);
+            this.comboBoxCiktiDoktorSec.Name = "comboBoxCiktiDoktorSec";
+            this.comboBoxCiktiDoktorSec.Size = new System.Drawing.Size(405, 24);
+            this.comboBoxCiktiDoktorSec.TabIndex = 1;
+            // 
+            // btnCiktiAl
+            // 
+            this.btnCiktiAl.Location = new System.Drawing.Point(173, 86);
+            this.btnCiktiAl.Name = "btnCiktiAl";
+            this.btnCiktiAl.Size = new System.Drawing.Size(405, 64);
+            this.btnCiktiAl.TabIndex = 2;
+            this.btnCiktiAl.Text = "ÇIKTI AL";
+            this.btnCiktiAl.UseVisualStyleBackColor = true;
+            // 
             // FormRandevuAlma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(1365, 581);
+            this.ClientSize = new System.Drawing.Size(1278, 601);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormRandevuAlma";
             this.Text = "RANDEVU ALMA İŞLEMLERİ FORMU";
@@ -221,6 +281,8 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.groupBoxServis.PerformLayout();
             this.groupBoxHasta.ResumeLayout(false);
             this.groupBoxHasta.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -242,5 +304,10 @@ namespace HastaneRandevuEFCF_WinFormUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtHastaTCArama;
         private System.Windows.Forms.TabPage tabPage2;
+        private UC_RandevuSaat UC_RandevuSaat1;
+        private System.Windows.Forms.Button btnRandevuAl;
+        private System.Windows.Forms.Button btnCiktiAl;
+        private System.Windows.Forms.ComboBox comboBoxCiktiDoktorSec;
+        private System.Windows.Forms.Label label5;
     }
 }
