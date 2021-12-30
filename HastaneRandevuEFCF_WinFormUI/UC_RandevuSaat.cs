@@ -42,6 +42,9 @@ namespace HastaneRandevuEFCF_WinFormUI
 
             Doktorum = null;
             DRveTrhyeGoreButonlariniAktifPasifIslemleriniYap();
+            //
+            timer1.Interval = 1;
+            timer1.Enabled = true;
         }
 
         private void RandevuButonlarinIsimleriniTemizle()
@@ -56,6 +59,7 @@ namespace HastaneRandevuEFCF_WinFormUI
         {
             try
             {
+                GecmisSaatlerinButonlariniPasiflestir();
                 if (Doktorum == null)
                 {
                     RandevuButonlariniPasiflestir();
@@ -81,7 +85,6 @@ namespace HastaneRandevuEFCF_WinFormUI
 
                 MessageBox.Show("HATA : " + ex.Message); ;
             }
-
         }
 
         private void DRveTrhyeGoreButonlariniAktifPasifIslemleriniYap()
@@ -196,11 +199,9 @@ namespace HastaneRandevuEFCF_WinFormUI
             Button btn = sender as Button;
             int saat = Convert.ToInt32(btn.Text.Substring(0, 2));
             int dakika = Convert.ToInt32(btn.Text.Substring(3, 2));
-
             SecilenRandevuTarihi = new DateTime(DisaridanGelenTarih.Year, DisaridanGelenTarih.Month, DisaridanGelenTarih.Day, saat, dakika, 00);
             RandevuAlmaAktifMi = true;
             MessageBox.Show("Saati seçitiniz...RAndevu Al işlemine devam edebilirsiniz...");
-
         }
 
         public void Temizle()
@@ -209,6 +210,44 @@ namespace HastaneRandevuEFCF_WinFormUI
             RandevuButonlarinIsimleriniTemizle();
             RandevuButonlariniPasiflestir();
             RandevuAlmaAktifMi = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GecmisSaatlerinButonlariniPasiflestir();
+        }
+
+        private void GecmisSaatlerinButonlariniPasiflestir()
+        {
+            foreach (Button btnitem in tableLayoutPanelRandevuButonlar.Controls)
+            {
+                //10:15
+                int dakika = 0;
+                int saat = 0;
+                if (btnitem.Text.Length > 3)
+                {
+                    int.TryParse(btnitem.Text.Substring(3, 2), out dakika);
+                    int.TryParse(btnitem.Text.Substring(0, 2), out saat);
+                }
+
+                if (DisaridanGelenTarih.ToShortDateString() == DateTime.Now.ToShortDateString())
+                {
+                    if (saat < DateTime.Now.Hour)
+                    {
+                        btnitem.BackColor = Color.DarkGray;
+                        btnitem.Enabled = false;
+                    }
+
+                    else if (saat == DateTime.Now.Hour)
+                    {
+                        if (dakika <= DateTime.Now.Minute)
+                        {
+                            btnitem.BackColor = Color.DarkGray;
+                            btnitem.Enabled = false;
+                        }
+                    }
+                }
+            }
         }
     }
 }

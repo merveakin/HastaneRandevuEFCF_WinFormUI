@@ -68,6 +68,12 @@
     <Compile Include="FormGiris.Designer.cs">
       <DependentUpon>FormGiris.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHastaCagir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHastaCagir.Designer.cs">
+      <DependentUpon>FormHastaCagir.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRandevuAlma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <EmbeddedResource Include="FormGiris.resx">
       <DependentUpon>FormGiris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHastaCagir.resx">
+      <DependentUpon>FormHastaCagir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormRandevuAlma.resx">
       <DependentUpon>FormRandevuAlma.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +108,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UC_RandevuSaat.resx">
       <DependentUpon>UC_RandevuSaat.cs</DependentUpon>
@@ -126,6 +136,12 @@
       <Project>{731d8d49-fe90-4235-a75d-69f147b0c9a8}</Project>
       <Name>HastaneRandevuEFCF_Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doktorRandevularResim1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doktorRandevularResim2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

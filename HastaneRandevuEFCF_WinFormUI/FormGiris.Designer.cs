@@ -32,6 +32,7 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.btnDoktorIslemleri = new System.Windows.Forms.Button();
             this.btnHastaIslemleri = new System.Windows.Forms.Button();
             this.btnRandevuIslemleri = new System.Windows.Forms.Button();
+            this.btnHastaCagir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDoktorIslemleri
@@ -66,12 +67,24 @@ namespace HastaneRandevuEFCF_WinFormUI
             this.btnRandevuIslemleri.UseVisualStyleBackColor = true;
             this.btnRandevuIslemleri.Click += new System.EventHandler(this.btnRandevuIslemleri_Click);
             // 
+            // btnHastaCagir
+            // 
+            this.btnHastaCagir.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnHastaCagir.Location = new System.Drawing.Point(101, 439);
+            this.btnHastaCagir.Name = "btnHastaCagir";
+            this.btnHastaCagir.Size = new System.Drawing.Size(356, 98);
+            this.btnHastaCagir.TabIndex = 3;
+            this.btnHastaCagir.Text = "HASTA ÇAĞIR";
+            this.btnHastaCagir.UseVisualStyleBackColor = true;
+            this.btnHastaCagir.Click += new System.EventHandler(this.btnHastaCagir_Click);
+            // 
             // FormGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(557, 497);
+            this.ClientSize = new System.Drawing.Size(569, 573);
+            this.Controls.Add(this.btnHastaCagir);
             this.Controls.Add(this.btnRandevuIslemleri);
             this.Controls.Add(this.btnHastaIslemleri);
             this.Controls.Add(this.btnDoktorIslemleri);
@@ -86,5 +99,6 @@ namespace HastaneRandevuEFCF_WinFormUI
         private System.Windows.Forms.Button btnDoktorIslemleri;
         private System.Windows.Forms.Button btnHastaIslemleri;
         private System.Windows.Forms.Button btnRandevuIslemleri;
+        private System.Windows.Forms.Button btnHastaCagir;
     }
 }

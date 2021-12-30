@@ -58,6 +58,7 @@
     <Compile Include="Kisi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandevuBilgileri.cs" />
+    <Compile Include="RandevuBilgileriViewModel.cs" />
     <Compile Include="SaatViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

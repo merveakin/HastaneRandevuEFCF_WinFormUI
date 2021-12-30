@@ -45,7 +45,7 @@ namespace HastaneRandevuEFCF_BLL
             {
                 bool sonuc = false;
                 var liste = myDBContext.RandevuBilgileri.Where(x => x.HastaId == hasta.HastaId
-                && x.RandevuTarihi==trh).ToList();
+                && x.RandevuTarihi == trh).ToList();
 
                 sonuc = liste.Count > 0 ? true : false;
 
@@ -79,6 +79,36 @@ namespace HastaneRandevuEFCF_BLL
                 throw ex;
             }
 
+        }
+        public RandevuBilgileriViewModel RandevuyuViewModeleAktar(RandevuBilgileri rnd)
+        {
+            try
+            {
+                RandevuBilgileriViewModel rndView = new RandevuBilgileriViewModel()
+                {
+                    RandevuId = rnd.Id,
+                    DoktorId = rnd.DoktorId,
+                    HastaId = rnd.HastaId,
+                    RandevuTarihi = rnd.RandevuTarihi
+                };
+
+                Hasta hst = myDBContext.Hastalar.FirstOrDefault(x => x.HastaId == rnd.HastaId);
+                rndView.HastaAdSoyad = hst?.HastaAdi + " " + hst?.HastaSoyadi;
+
+                Doktor dr = myDBContext.Doktorlar.FirstOrDefault(x => x.DoktorId == rnd.DoktorId);
+                rndView.DoktorAdSoyad = dr?.DoktorAdi + " " + dr?.DoktorSoyadi;
+
+                //servis
+                rndView.Servis = EnumManager.BransiTurkceStringOlarakVer(rnd.Doktor.Brans);
+
+
+                return rndView;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

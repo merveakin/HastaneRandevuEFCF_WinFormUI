@@ -23,5 +23,37 @@ namespace HastaneRandevuEFCF_BLL
             }
             return data;
         }
+
+        public static string BransiTurkceStringOlarakVer(Branslar brans)
+        {
+            string bransString = "";
+
+            switch (brans)
+            {
+                case Branslar.BransYok:
+                    bransString = "Genel Servisi";
+                    break;
+                case Branslar.Dahiliye:
+                    bransString = "Dahiliye Servisi";
+                    break;
+                case Branslar.KBB:
+                    bransString = "KBB Servisi";
+                    break;
+                case Branslar.GozHastaliklari:
+                    bransString = "Göz Hastalıkları Servisi";
+                    break;
+                case Branslar.Ortopedi:
+                    bransString = "Ortopedi Servisi";
+                    break;
+                case Branslar.Kardiyoloji:
+                    bransString = "Kardiyoloji Servisi";
+                    break;
+                default:
+                    bransString = "Genel Servis";
+                    break;
+            }
+
+            return bransString;
+        }
     }
 }

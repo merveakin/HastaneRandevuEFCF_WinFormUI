@@ -35,6 +35,9 @@ namespace HastaneRandevuEFCF_Entities
         [Display(Name = "Maaşı")]
         public decimal Maas { get; set; }
 
+        //30-12-2021 de eklendi--->>>saat 13:34
+        public bool AktifMi { get; set; }
+
         public virtual List<RandevuBilgileri> RandevuBilgileriList { get; set; }
         public override string ToString()
         {
