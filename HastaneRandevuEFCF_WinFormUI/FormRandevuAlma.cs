@@ -31,13 +31,13 @@ namespace HastaneRandevuEFCF_WinFormUI
             RandevuTarihveSaatGroupBoxiniPasiflestir();
             HastaListBoxiniDoldur();
             //datetimepicker'ı formatlayalım.
-            DateTimePickeriAyarla(DateTime.Now);
+            DateTimePickeriAyarla();
 
             //comboCiktiAl
             DoktorlariComboBoxCiktiAlDrSeceDoldur();
+            comboBoxCiktiAlDrSec.SelectedIndex = -1;
 
         }
-
         private void DoktorlariComboBoxCiktiAlDrSeceDoldur()
         {
             //
@@ -46,16 +46,15 @@ namespace HastaneRandevuEFCF_WinFormUI
             comboBoxCiktiAlDrSec.DataSource = doktorManagerim.TumAktifDoktorlariGetir();
 
         }
-
-        private void DateTimePickeriAyarla(DateTime trh)
+        private void DateTimePickeriAyarla()
         {
             dateTimePickerRandevuTarihi.Format =
                          DateTimePickerFormat.Custom;
             dateTimePickerRandevuTarihi.CustomFormat = "dd.MM.yyyy";
-            dateTimePickerRandevuTarihi.MinDate = trh;
+            dateTimePickerRandevuTarihi.MinDate = DateTime.Now;
             dateTimePickerRandevuTarihi.MaxDate =
                 dateTimePickerRandevuTarihi.MinDate.AddDays(15);
-            dateTimePickerRandevuTarihi.Value = trh;
+            dateTimePickerRandevuTarihi.Value = DateTime.Now;
 
             //
             dateTimePickerCiktiAl.Format = DateTimePickerFormat.Custom;
@@ -66,14 +65,12 @@ namespace HastaneRandevuEFCF_WinFormUI
 
 
         }
-
         private void HastaListBoxiniDoldur()
         {
             listBoxHastalar.DataSource = hastaManagerim.TumHastalariGetir();
             listBoxHastalar.SelectedIndex = -1;
 
         }
-
         private void RandevuTarihveSaatGroupBoxiniPasiflestir()
         {
             groupBoxRandevu.Enabled = false;
@@ -86,7 +83,6 @@ namespace HastaneRandevuEFCF_WinFormUI
         {
             groupBoxServis.Enabled = false;
         }
-
         private void txtHastaTCArama_TextChanged(object sender, EventArgs e)
         {
             if (txtHastaTCArama.Text.Trim().Length >= 2)
@@ -113,7 +109,7 @@ namespace HastaneRandevuEFCF_WinFormUI
                 ServisGroupBoxiniPasiflestir();
                 RandevuTarihveSaatGroupBoxiniPasiflestir();
             }
-            DateTimePickeriAyarla(DateTime.Now);
+            DateTimePickeriAyarla();
             UC_RandevuSaat1.Temizle();
         }
         private void ServisGroupBoxiniAktiflestir()
@@ -128,7 +124,6 @@ namespace HastaneRandevuEFCF_WinFormUI
             comboBoxServis.DataSource = Enum.GetValues(typeof(Branslar));
             comboBoxServis.SelectedIndex = 0;       //-1 yazsaydı boş gelecekti //0 olduğu için 'Branş Yok' gelecek
         }
-
         private void comboBoxServis_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxServis.SelectedIndex >= 0)
@@ -143,10 +138,9 @@ namespace HastaneRandevuEFCF_WinFormUI
                 //doktorManagerim.TumAktifDoktorlariGetir();
             }
             listBoxDoktorlar.SelectedIndex = -1;
-            DateTimePickeriAyarla(DateTime.Now);
+            DateTimePickeriAyarla();
             UC_RandevuSaat1.Temizle();
         }
-
         private void DoktorlarListesiniDoldur()
         {
             Branslar drBransi;
@@ -154,10 +148,9 @@ namespace HastaneRandevuEFCF_WinFormUI
             listBoxDoktorlar.DataSource =
                 doktorManagerim.BransaGoreDoktorlariGetir(drBransi);
         }
-
         private void listBoxDoktorlar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DateTimePickeriAyarla(DateTime.Now);
+            DateTimePickeriAyarla();
 
             if (listBoxDoktorlar.SelectedIndex >= 0)
             {
@@ -174,11 +167,10 @@ namespace HastaneRandevuEFCF_WinFormUI
         }
         private void dateTimePickerRandevuTarihi_ValueChanged(object sender, EventArgs e)
         {
-            DateTimePickeriAyarla(dateTimePickerRandevuTarihi.Value);
+
             UC_RandevuSaat1.DisaridanGelenTarih = dateTimePickerRandevuTarihi.Value;
             UC_RandevuSaat1.Temizle();
         }
-
         private void btnRandevuAl_Click(object sender, EventArgs e)
         {
             try
@@ -249,7 +241,6 @@ namespace HastaneRandevuEFCF_WinFormUI
                 MessageBox.Show("HATA : " + ex.Message);
             }
         }
-
         private void ListVieweRandevuyuEkle(RandevuBilgileri yeniRandevu)
         {
             RandevuBilgileriViewModel randevu = rndManager.RandevuyuViewModeleAktar(yeniRandevu);
@@ -261,7 +252,6 @@ namespace HastaneRandevuEFCF_WinFormUI
             li.Tag = randevu;
             listViewAlinanRandevular.Items.Add(li);
         }
-
         private void tabControl1_Click(object sender, EventArgs e)
         {
             //temizlik randevu al
@@ -276,18 +266,23 @@ namespace HastaneRandevuEFCF_WinFormUI
             //temizlik çıktı al
             btnCiktiAl.Enabled = false;
             dateTimePickerCiktiAl.Value = DateTime.Now;
-            comboBoxCiktiAlDrSec.SelectedIndex = 0;
+            comboBoxCiktiAlDrSec.SelectedIndex = -1;
         }
         private void comboBoxCiktiAlDrSec_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (comboBoxCiktiAlDrSec.SelectedIndex < 0)
+                if (comboBoxCiktiAlDrSec.SelectedIndex >= 0)
                 {
-                    throw new Exception("Lütfen doktor seçiniz!");
+                    Doktor secilenDr = doktorManagerim.DoktoruIdyeGoreBul((int)comboBoxCiktiAlDrSec.SelectedValue);
+                    CiktiAlButonuAktifPasifliginiAyarla(secilenDr, dateTimePickerCiktiAl.Value);
                 }
-                Doktor secilenDr = doktorManagerim.DoktoruIdyeGoreBul((int)comboBoxCiktiAlDrSec.SelectedValue);
-                CiktiAlButonuAktifPasifliginiAyarla(secilenDr, dateTimePickerCiktiAl.Value);
+
+                else
+                {
+                    dateTimePickerCiktiAl.Value = DateTime.Now;
+                    btnCiktiAl.Enabled = false;
+                }
             }
             catch (Exception ex)
             {

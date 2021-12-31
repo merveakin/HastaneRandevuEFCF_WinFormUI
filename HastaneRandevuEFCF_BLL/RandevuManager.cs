@@ -18,20 +18,30 @@ namespace HastaneRandevuEFCF_BLL
             try
             {
                 List<RandevuBilgileri> rndList = new List<RandevuBilgileri>();
+                List<RandevuBilgileri> returnList = new List<RandevuBilgileri>();
 
                 rndList = myDBContext.RandevuBilgileri.Where(x => x.DoktorId == dr.DoktorId).ToList();
 
-                //Burada foreach kullanmamamızın sebebi foreach döngüsünde koleksiyonun bozulamamasıdır. Oysa biz burada tarihi eşleşmeyen randevuları listemizden sileceğiz...
-                for (int i = 0; i < rndList.Count; i++)
+                //1.YÖNTEM : for ile yapmak istersek    ---->>>>
+
+                //for (int i = 0; i < rndList.Count; i++)
+                //{
+                //    if (rndList[i].RandevuTarihi.ToShortDateString() == trh.ToShortDateString())
+                //    {
+                //        returnList.Add(rndList[i]);
+                //    }
+                //}
+
+                //2.YÖNTEM : foreach ile yapmak istersek    ---->>>>
+
+                foreach (RandevuBilgileri item in rndList)
                 {
-                    if (rndList[i].RandevuTarihi.ToShortDateString() != trh.ToShortDateString())
+                    if (item.RandevuTarihi.ToShortDateString() == trh.ToShortDateString())
                     {
-                        rndList.Remove(rndList[i]);
+                        returnList.Add(item);
                     }
                 }
-
-
-                return rndList;
+                return returnList;
             }
             catch (Exception ex)
             {
