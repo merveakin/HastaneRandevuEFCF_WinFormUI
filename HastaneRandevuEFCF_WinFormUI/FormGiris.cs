@@ -21,7 +21,7 @@ namespace HastaneRandevuEFCF_WinFormUI
         {
             //this.Hide();
             FormDoktorlar frmDr = new FormDoktorlar();
-            frmDr.Show();
+            frmDr.ShowDialog();
         }
 
         //private void btnHastaIslemleri_Click(object sender, EventArgs e)
@@ -35,13 +35,14 @@ namespace HastaneRandevuEFCF_WinFormUI
         {
             //this.Hide();
             FormRandevuAlma frmRandevu = new FormRandevuAlma();
-            frmRandevu.Show();
+            //frmRandevu.Show();        //----->>>Birden fazla form açılabilir.
+            frmRandevu.ShowDialog();        //--->>Birden fazla form açılması engellendi.
         }
 
         private void btnHastaCagir_Click(object sender, EventArgs e)
         {
             FormHastaCagir frmHastaCagir = new FormHastaCagir();
-            frmHastaCagir.Show();
+            frmHastaCagir.ShowDialog();
         }
     }
 }

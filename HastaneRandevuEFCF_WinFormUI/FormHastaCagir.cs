@@ -22,9 +22,11 @@ namespace HastaneRandevuEFCF_WinFormUI
         DoktorManager drManager = new DoktorManager();
         RandevuManager rndManager = new RandevuManager();
         Doktor SecilenDoktor { get; set; }
+        public bool FormLoadBittiMi { get; set; } = false;
 
         private void FormHastaCagir_Load(object sender, EventArgs e)
         {
+            FormLoadBittiMi = false;
             //combo
             ComboyaDoktorlariGetir();
             //btnDurdur
@@ -36,6 +38,7 @@ namespace HastaneRandevuEFCF_WinFormUI
             SecilenDoktor = null;
             //timer
             label3.Visible = false;
+            FormLoadBittiMi = true;
         }
 
         private void ComboyaDoktorlariGetir()
@@ -54,7 +57,9 @@ namespace HastaneRandevuEFCF_WinFormUI
                 SecilenDoktor = drManager.DoktoruIdyeGoreBul(
                     (int)comboBoxDoktor.SelectedValue);
 
-                if (rndManager.DoktorunRandevulariniTariheGoreGetir(SecilenDoktor, DateTime.Now).Count == 0)
+                if (rndManager.DoktorunRandevulariniTariheGoreGetir(SecilenDoktor, DateTime.Now).Count == 0
+                    &&
+                    FormLoadBittiMi)
                 {
                     MessageBox.Show($"{SecilenDoktor.ToString()} adlı doktorun bugün hiç randevusu bulunmuyor!");
                     timer1.Stop();
